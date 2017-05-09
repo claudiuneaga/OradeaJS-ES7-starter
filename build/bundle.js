@@ -3331,7 +3331,7 @@ var getVal = function () {
         switch (_context.prev = _context.next) {
           case 0:
             _context.next = 2;
-            return Consts.asyncFunc();
+            return Consts.getValue();
 
           case 2:
             return _context.abrupt('return', _context.sent);
@@ -3349,7 +3349,9 @@ var getVal = function () {
   };
 }();
 console.log(Consts.message);
-console.log(getVal());
+console.log(getVal().then(function (v) {
+  return console.log(v);
+}));
 
 /***/ }),
 /* 115 */
@@ -3396,39 +3398,19 @@ define(String.prototype, "padRight", "".padEnd);
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-
-function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
-
 var versions = 'ES6/ES7';
 var message = 'Now you can write ' + versions;
-var asyncFunc = function () {
-    var _ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee() {
-        return regeneratorRuntime.wrap(function _callee$(_context) {
-            while (1) {
-                switch (_context.prev = _context.next) {
-                    case 0:
-                        return _context.abrupt('return', new Promise(function (resolve, reject) {
-                            setTimeout(function () {
-                                resolve(42);
-                            }, 1000);
-                        }));
-
-                    case 1:
-                    case 'end':
-                        return _context.stop();
-                }
-            }
-        }, _callee, undefined);
-    }));
-
-    return function asyncFunc() {
-        return _ref.apply(this, arguments);
-    };
-}();
+var getValue = function getValue() {
+    return new Promise(function (resolve) {
+        setTimeout(function () {
+            resolve(42);
+        }, 1000);
+    });
+};
 
 exports.versions = versions;
 exports.message = message;
-exports.asyncFunc = asyncFunc;
+exports.getValue = getValue;
 
 /***/ }),
 /* 117 */

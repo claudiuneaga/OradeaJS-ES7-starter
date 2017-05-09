@@ -8,4 +8,4 @@ Starter kit for JavaScript ES7 with Webpack and Babel
 ## Installation
 - clone or download and extract package
 - run `npm install` in folder
-- run `npm run build` to build project
+- run `npm run start` to build project
